@@ -5,6 +5,10 @@ var Iterators = {
   // - tripler([7,50,4]) should return [21,150,12].
   // Use `map` to accomplish this.
   tripler: function (numbers) {
+    var answer = numbers.map(function (thisNumber) {
+      return thisNumber * 3;
+    });
+    return answer
   },
 
   // perfectSquares() should take an array of numbers as a parameter
@@ -16,6 +20,9 @@ var Iterators = {
   // - perfectSquares([1,4,9]) should return [1,4,9].
   // Use `filter` to accomplish this.
   perfectSquares: function (numbers) {
+      return numbers.filter(function (n){
+        return Math.sqrt(n) % 1 === 0; 
+      }); 
   },
 
   // product() should accept an array of numbers as a parameter
@@ -26,6 +33,9 @@ var Iterators = {
   // - product([100,200,300]) should return 6000000.
   // Use `reduce` to accomplish this.
   product: function (numbers) {
+    return numbers.reduce(function (previous, current) {
+      return previous * current;
+    });
   },
 
   // hasInstructor() accepts an array of names and should return true
@@ -39,6 +49,10 @@ var Iterators = {
   // Use `some` to accomplish this.
   // Hint: see `toLowerCase`, it could be useful.
   hasInstructor: function (names) {
+    return names.some(function (person) {
+      person = person.toLowerCase();
+      return person == "tim" || person == "alex" || person == "elie";
+    });
   },
 
   // allSamePlayer() should accept an array of players, represented by
@@ -53,6 +67,13 @@ var Iterators = {
   // - allSamePlayer(["_","_","_"]) should return false.
   // Use `every` to accomplish this.
   allSamePlayer: function (players) {
+    var first = players[0];
+    if (first !== "x" && first !== "o") {
+      return false;
+    }
+    return players.every(function (character) {
+      return character === first;
+    });
   },
 
   // Also not an iterator metheod, necessarily. devowel() takes a
